@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Card Generator</title>
+  <link rel="stylesheet" href="Card.css" />
+</head>
+
+<body>
+
+  <!-- Toast notification -->
+  <div id="toast" class="toast"></div>
+
+  <!-- Header -->
+  <header>
+    <h1 class="logo">Card<span class="logo-dot">.</span></h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#formcontainer">Create</a>
+      <a href="#formats">Formats</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="darkToggle" class="dark-toggle" title="Toggle dark mode">&#9790;</button>
+  </header>
+
+  <!-- Hero Section -->
+  <div id="home">
+
+    <!-- Floating background cards -->
+    <div class="hero-cards" aria-hidden="true">
+      <div class="hero-card hc1">
+        <div class="hc-avatar" style="background:#4c78af">AP</div>
+        <div class="hc-name">Akshay P.</div>
+        <div class="hc-role">Creative Developer</div>
+        <div class="hc-bar"></div><div class="hc-bar hc-bar-short"></div>
+      </div>
+      <div class="hero-card hc2">
+        <div class="hc-avatar" style="background:#1D9E75">SR</div>
+        <div class="hc-name">Sara R.</div>
+        <div class="hc-role">UI Designer</div>
+        <div class="hc-bar"></div><div class="hc-bar hc-bar-short"></div>
+      </div>
+      <div class="hero-card hc3">
+        <div class="hc-avatar" style="background:#7F77DD">KM</div>
+        <div class="hc-name">Kevin M.</div>
+        <div class="hc-role">Product Manager</div>
+        <div class="hc-bar"></div><div class="hc-bar hc-bar-short"></div>
+      </div>
+      <div class="hero-card hc4">
+        <div class="hc-avatar" style="background:#D85A30">NJ</div>
+        <div class="hc-name">Nina J.</div>
+        <div class="hc-role">Data Scientist</div>
+        <div class="hc-bar"></div><div class="hc-bar hc-bar-short"></div>
+      </div>
+      <div class="hero-card hc5">
+        <div class="hc-avatar" style="background:#BA7517">RM</div>
+        <div class="hc-name">Raj M.</div>
+        <div class="hc-role">Full Stack Dev</div>
+        <div class="hc-bar"></div><div class="hc-bar hc-bar-short"></div>
+      </div>
+    </div>
+
+    <!-- Centered text -->
+    <div class="hero-text">
+      <!-- <div class="hero-badge">&#9889; Free &amp; instant</div> -->
+      <h1>Build Beautiful<br>Profile Cards</h1>
+      <p>Type your details, pick a theme, and your card appears instantly — no design skills needed.</p>
+      <div class="hero-actions">
+        <a href="#formcontainer" class="hero-btn">Start Creating</a>
+        <a href="#about" class="hero-btn-ghost">Learn more</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><span>5</span> themes</div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span>1-click</span> download</div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span>Auto</span> saved</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- About Section -->
+  <div id="about" class="about-section">
+    <div class="about-box">
+      <h1>About This Project</h1>
+      <p>
+        The Card Creation Website is a mini-project built using HTML, CSS, and JavaScript.
+        It allows users to generate customized cards by entering details like profile image URL,
+        name, title, and description. Cards are saved automatically so they survive page refreshes.
+      </p>
+      <p>
+        This project demonstrates DOM manipulation, localStorage, live previews, and dynamic UI generation —
+        all beginner-friendly concepts in web development.
+      </p>
+      <div class="bout-boxsep">
+        <ul>
+          <li><b>Key Features</b></li>
+          <li>Live card preview as you type</li>
+          <li>Multiple color themes</li>
+          <li>Edit &amp; delete cards</li>
+          <li>Download card as image</li>
+          <li>Cards saved with localStorage</li>
+          <li>Dark mode support</li>
+        </ul>
+        <ul>
+          <li><b>Future Enhancements</b></li>
+          <li>Drag-and-drop image upload</li>
+          <li>Multiple card templates</li>
+          <li>Export all cards as PDF</li>
+          <li>Share card via link</li>
+          <li>Card reordering</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Section -->
+  <div id="formcontainer">
+
+    <div id="form1">
+      <h2>Create Your Card</h2>
+
+      <form id="cardForm" novalidate>
+
+        <div class="field-group">
+          <label for="imgUrl">Profile image URL</label>
+          <input type="url" id="imgUrl" placeholder="https://example.com/photo.jpg" />
+          <span class="field-error" id="imgUrl-err"></span>
+        </div>
+
+        <div class="field-group">
+          <label for="nameInput">Full name <span class="required">*</span></label>
+          <input type="text" id="nameInput" placeholder="Akshay Pardeshi" required />
+          <span class="field-error" id="nameInput-err"></span>
+        </div>
+
+        <div class="field-group">
+          <label for="titleInput">Title / role <span class="required">*</span></label>
+          <input type="text" id="titleInput" placeholder="Creative Developer" required />
+          <span class="field-error" id="titleInput-err"></span>
+        </div>
+
+        <div class="field-group">
+          <label for="descInput">Short bio</label>
+          <textarea id="descInput" rows="3" placeholder="A short description about yourself…"></textarea>
+        </div>
+
+        <div class="field-group">
+          <label for="socialInput">Social / website link</label>
+          <input type="url" id="socialInput" placeholder="https://github.com/yourname" />
+        </div>
+
+        <div class="field-group">
+          <label for="themeSelect">Card theme</label>
+          <select id="themeSelect">
+            <option value="default">Default (blue)</option>
+            <option value="teal">Teal</option>
+            <option value="coral">Coral</option>
+            <option value="purple">Purple</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
+
+        <button type="submit" id="submitBtn">Add Card</button>
+      </form>
+    </div>
+
+    <!-- Live Preview -->
+    <div id="previewPanel">
+      <p class="preview-label">Live preview</p>
+      <div id="previewCard" class="card theme-default">
+        <div class="profile">
+          <img id="prevImg" src="https://ui-avatars.com/api/?name=Your+Name&background=4c78af&color=fff&size=120" alt="preview" />
+        </div>
+        <div class="card-body">
+          <h3 id="prevName">Your Name</h3>
+          <h5 id="prevTitle">Your Title</h5>
+          <p id="prevDesc">Your bio will appear here…</p>
+          <a id="prevLink" class="card-link" href="#" style="display:none">View profile</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Card count bar -->
+  <div id="cardBar">
+    <span id="cardCount">0 cards created</span>
+    <button id="clearAll" class="clear-btn" title="Delete all cards">Clear all</button>
+  </div>
+
+  <!-- Generated Cards -->
+  <div id="main2"></div>
+
+  <!-- Formats Section -->
+  <div id="formats" class="formats-section">
+    <h1>Card Formats</h1>
+    <p>You can create multiple types of cards using this generator. Each format is customizable.</p>
+    <div class="formats-grid">
+      <div class="format-card">
+        <div class="format-icon">&#128100;</div>
+        <h3>Profile card</h3>
+        <p>Photo, name, title, and short bio. Ideal for portfolios.</p>
+      </div>
+      <div class="format-card">
+        <div class="format-icon">&#128101;</div>
+        <h3>Team member card</h3>
+        <p>Showcase employees or group members with their roles.</p>
+      </div>
+      <div class="format-card">
+        <div class="format-icon">&#128722;</div>
+        <h3>Product card</h3>
+        <p>Display product images, features, and pricing details.</p>
+      </div>
+      <div class="format-card">
+        <div class="format-icon">&#9881;</div>
+        <h3>Service card</h3>
+        <p>Explain a service you offer in a clean and readable layout.</p>
+      </div>
+      <div class="format-card">
+        <div class="format-icon">&#128203;</div>
+        <h3>Info card</h3>
+        <p>Highlight key information, announcements, or instructions.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div id="contact">
+    <h1>Contact Us</h1>
+    <div class="contact-box">
+      <p >Have questions or suggestions? We'd love to hear from you.</p>
+      <p><strong>Location:</strong> Pune, Maharashtra</p>
+      <p><strong>Email:</strong>akshaypardehi7875@gmail.com</p>
+      <p><strong>Phone:</strong> +91 7875061007</p>
+
+      <form class="contact-form" id="contactForm">
+        <div class="field-group">
+          <input type="text" placeholder="Your name" required />
+        </div>
+        <div class="field-group">
+          <input type="email" placeholder="Your email" required />
+        </div>
+        <div class="field-group">
+          <textarea placeholder="Your message" rows="4" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+      <p class="response-note">We'll get back to you shortly.</p>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="Card.js"></script>
+</body>
+
+</html>
