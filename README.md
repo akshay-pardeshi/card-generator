@@ -64,6 +64,3 @@ If you like this project, give it a ⭐ on GitHub!
 
 ---
 
-## ⚠️ Disclaimer
-
-This project is created for learning purposes.
